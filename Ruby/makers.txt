@@ -1,0 +1,5 @@
+Juan,33,Músico,1.83
+Alejo,35,Diseñador,1.80
+Memo,32,Ingeniero de Petroleos,1.67
+Edison,23,Estudiante,1.83
+Lili,22,Estudiante,1.55
