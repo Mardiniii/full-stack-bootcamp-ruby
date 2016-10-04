@@ -15,6 +15,7 @@
 # Al momento de comenzar el programa deben haber por lo menos 3 productos en el store
 # Una vez ejecute una opción debo volver al menú
 # Debe existir una opción para salir del programa
+# El programa debe tener memoria(archivo .txt) donde se cargan los productos existentes y se almacenan los nuevos productos
 
 # Print all the products in the stock
 def print_product(product, index)
@@ -90,6 +91,11 @@ def read_stock_from_file(products, txt)
   end
 end
 
+def write_new_product_on_file(txt, product)
+  txt.write(product)
+  txt.close
+end
+
 filename = 'products.txt'
 txt = open(filename)
 
@@ -147,16 +153,24 @@ while option != 6
     puts 'Brand: '
     brand = gets.chomp
     puts 'Price: '
-    price = gets.chomp.to_i
+    price = gets.chomp
     puts 'Quantity: '
-    quantity = gets.chomp.to_i
+    quantity = gets.chomp
     puts 'Reference: '
     reference = gets.chomp
 
-    # Create
-    new_product = { name: name, brand: brand, price: price, quantity: quantity, reference: reference }
+    # Open file before write a new product
+    txt = open(filename, 'a+')
+    # Create string line to save a new product on file
+    product = "\n" + name + ',' + brand + ',' + price + ',' + quantity + ',' + reference
+    # Call function to write a new product
+    write_new_product_on_file(txt, product)
+    # Save the new product on the products array
+    new_product = { name: name, brand: brand, price: price.to_i, quantity: quantity.to_i, reference: reference }
     add_product(products, new_product)
+    # Show product
     print_product(products.last, products.size - 1)
+    # Happy message for the user
     puts 'The product has been created succesfully'
   when 6
     puts "Bye bye user!"

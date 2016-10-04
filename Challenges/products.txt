@@ -1,3 +1,4 @@
 T - Shirt,Quicksilver,30_000,10,REF001
 Jean,Levis,200_000,20,REF002
 Jacket,Custer,100_000,30,REF003
+Jarrita,Plesco,5000,15,REF999
