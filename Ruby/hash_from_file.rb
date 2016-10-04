@@ -17,4 +17,4 @@ txt.each_line do |line|
   students.push(student_hash)
 end
 
-puts students
+print students
