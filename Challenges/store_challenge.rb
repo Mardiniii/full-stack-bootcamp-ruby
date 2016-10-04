@@ -97,6 +97,8 @@ products = [ ]
 
 read_stock_from_file(products, txt)
 
+txt.close
+
 option = 0
 while option != 6
   puts """
