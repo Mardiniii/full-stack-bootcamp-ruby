@@ -75,11 +75,27 @@ def prompt
   print '> '
 end
 
-product_1 = { name: 'T - Shirt', brand: 'Quicksilver', price: 30_000, quantity: 10, reference: 'REF001' }
-product_2 = { name: 'Jean', brand: 'Levis', price: 200_000, quantity: 20, reference: 'REF002' }
-product_3 = { name: 'Jacket', brand: 'Custer', price: 100_000, quantity: 30, reference: 'REF003' }
+def read_stock_from_file(products, txt)
+  txt.each_line do |line|
+    product = line.split(',')
+    name = product[0]
+    brand = product[1]
+    price = product[2].to_i
+    quantity = product[3].to_i
+    reference = product[4]
 
-products = [ product_1, product_2, product_3 ]
+    product_hash = { name: name, brand: brand, price: price, quantity: quantity, reference: reference }
+
+    products.push(product_hash)
+  end
+end
+
+filename = 'products.txt'
+txt = open(filename)
+
+products = [ ]
+
+read_stock_from_file(products, txt)
 
 option = 0
 while option != 6
