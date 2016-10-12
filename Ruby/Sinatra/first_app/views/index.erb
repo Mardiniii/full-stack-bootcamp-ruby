@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <% unless @name %>
+          <h1>Hola desconocido!</h1>
+        <% else %>
+          <h1>Hola <%= @name %></h1>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <form method="post" action="/new/user">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" name="username" class="form-control"><br>
+          </div>
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" class="form-control"><br>
+          </div>
+
+          <div class="form-group">
+            <label for="profession">Proffesion</label>
+            <input type="text" name="profession" class="form-control"><br>
+          </div>
+
+          <div class="form-group">
+            <button type="submit" value="Save user" class="btn btn-success">Save user</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
